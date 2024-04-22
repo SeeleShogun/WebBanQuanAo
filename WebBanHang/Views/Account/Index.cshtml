@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Bạn đã đăng nhập thành công, vui lòng nhấn vào <a href="/Account/Logout">đây</a> để tiếp tục mua hàng</h1>
+}
+else
+{
+    <h1>Hãy đến trang <a href="/Account/Login">Đăng Nhập</a></h1>
+}

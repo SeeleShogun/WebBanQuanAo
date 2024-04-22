@@ -1,0 +1,89 @@
+﻿@model WebBanHang.Models.TheLoai
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    /* Căn giữa form */
+    .row {
+        justify-content: center;
+    }
+
+    /* Thêm khoảng đệm xung quanh form */
+    .col-md-4 {
+        padding: 1rem;
+    }
+
+    /* Tạo kiểu cho nhãn */
+    .control-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Tạo kiểu cho input */
+    .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+    }
+
+    /* Tạo kiểu cho nút submit */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+    }
+
+    /* Tạo kiểu cho liên kết quay lại danh sách */
+    .a {
+        float: right;
+        margin-top: 1rem;
+    }
+</style>
+
+<h4>Thể loại</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaTheLoai" class="control-label"></label>
+                <input asp-for="MaTheLoai" class="form-control" />
+                <span asp-validation-for="MaTheLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenTheLoai" class="control-label"></label>
+                <input asp-for="TenTheLoai" class="form-control" />
+                <span asp-validation-for="TenTheLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTaTheLoai" class="control-label"></label>
+                <input asp-for="MoTaTheLoai" class="form-control" />
+                <span asp-validation-for="MoTaTheLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnhTL" class="control-label"></label>
+                <input asp-for="AnhTL" class="form-control" />
+                <span asp-validation-for="AnhTL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TTTheLoai" class="control-label"></label>
+                <input asp-for="TTTheLoai" class="form-control" />
+                <span asp-validation-for="TTTheLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

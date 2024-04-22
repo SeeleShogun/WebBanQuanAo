@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebBanHang.Models.TheLoai>
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="card-body">
+    <div class="shop__sidebar__categories">
+        <ul class="nice-scroll">
+            @foreach (var item in Model){
+                <li><a href="#">@item.TenTheLoai<small>(@item.MaTheLoai.Count())</small></a></li>
+                
+            
+            
+            }
+        </ul>
+    </div>
+</div>

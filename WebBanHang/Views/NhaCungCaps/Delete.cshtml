@@ -1,0 +1,35 @@
+﻿@model WebBanHang.Models.NhaCungCap
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0px 30px;
+    }
+</style>
+
+
+<div class="details">
+    <h4>Nhà cung cấp</h4>
+    <h4>Bạn có muốn xóa nhà cung cấp này không?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenNCC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenNCC)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="MaNCC" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

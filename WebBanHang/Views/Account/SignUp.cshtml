@@ -1,0 +1,90 @@
+﻿@model WebBanHang.Models.User
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <style>
+        /* Căn giữa form */
+        .row {
+            justify-content: center;
+        }
+
+        /* Thêm khoảng đệm xung quanh form */
+        .col-md-4 {
+            padding: 1rem;
+        }
+
+        /* Tạo kiểu cho nhãn */
+        .control-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tạo kiểu cho input */
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+        }
+
+        /* Tạo kiểu cho nút submit */
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+        }
+
+        /* Tạo kiểu cho liên kết quay lại danh sách */
+        .a {
+            float: right;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<h4>Tạo tài khoản</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SignUp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoDT" class="control-label"></label>
+                <input asp-for="SoDT" class="form-control" />
+                <span asp-validation-for="SoDT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,85 @@
+﻿@model WebBanHang.Models.ThuongHieu
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    /* Căn giữa form */
+    .row {
+        justify-content: center;
+    }
+
+    /* Thêm khoảng đệm xung quanh form */
+    .col-md-4 {
+        padding: 1rem;
+    }
+
+    /* Tạo kiểu cho nhãn */
+    .control-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Tạo kiểu cho input */
+    .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+    }
+
+    /* Tạo kiểu cho nút submit */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+    }
+
+    /* Tạo kiểu cho liên kết quay lại danh sách */
+    .a {
+        float: right;
+        margin-top: 1rem;
+    }
+</style>
+
+<h4>Thương hiệu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaThuongHieu" />
+            <div class="form-group">
+                <label asp-for="TenThuongHieu" class="control-label"></label>
+                <input asp-for="TenThuongHieu" class="form-control" />
+                <span asp-validation-for="TenThuongHieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTaThuongHieu" class="control-label"></label>
+                <input asp-for="MoTaThuongHieu" class="form-control" />
+                <span asp-validation-for="MoTaThuongHieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnhTH" class="control-label"></label>
+                <input asp-for="AnhTH" class="form-control" />
+                <span asp-validation-for="AnhTH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TTThuongHieu" class="control-label"></label>
+                <input asp-for="TTThuongHieu" class="form-control" />
+                <span asp-validation-for="TTThuongHieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

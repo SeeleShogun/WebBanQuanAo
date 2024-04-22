@@ -1,0 +1,43 @@
+﻿@model WebBanHang.Models.ChiTietHDN
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0px 30px;
+    }
+</style>
+
+<div class="details">
+    <h4>Chi tiết hóa đơn nhập</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HoaDonNhap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoaDonNhap.MaHDN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SLNhap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SLNhap)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuanAo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuanAo.TenSP)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MaHDN">Chỉnh sửa</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

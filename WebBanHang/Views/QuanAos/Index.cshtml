@@ -1,0 +1,121 @@
+﻿@model IEnumerable<WebBanHang.Models.QuanAo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .buttons {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 13px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #3399ff;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .buttons:hover {
+        background-color: #0066ff
+    }
+
+    .table {
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+        .table thead {
+            background-color: #D3D3D3;
+        }
+
+        .table th,
+        .table td {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+</style>
+
+<h4>Sản phẩm</h4>
+
+@using (Html.BeginForm("Index", "QuanAos", FormMethod.Get))
+{
+    <p>
+        Tìm kiếm: @Html.TextBox("SearchString",ViewBag.CurrentFilter as String)
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
+
+<p>
+    <a asp-action="Create" class="buttons">Tạo mới</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThuongHieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TheLoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatLieu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="7" style="color:red">
+                    Không tìm thấy sản phẩm!
+                </td>
+            </tr>
+        }
+        else
+        {           
+            @foreach (var item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ThuongHieu.TenThuongHieu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChatLieu.TenChatLieu)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MaSP">Chỉnh sửa</a> |
+                        <a asp-action="Details" asp-route-id="@item.MaSP">Chi tiết</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MaSP">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

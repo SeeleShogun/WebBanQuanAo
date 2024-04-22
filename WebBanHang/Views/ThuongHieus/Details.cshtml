@@ -1,0 +1,56 @@
+﻿@model WebBanHang.Models.ThuongHieu
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .details {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0px 30px;
+    }
+</style>
+
+<div class="details">
+    <h4>Thương hiệu</h4>
+    <hr />
+    <img src="/img/ThuongHieu/@Model.AnhTH" class="blog__details__pic" style="width:150px;height:150px;">
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaThuongHieu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaThuongHieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenThuongHieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenThuongHieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MoTaThuongHieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MoTaThuongHieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnhTH)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnhTH)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TTThuongHieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TTThuongHieu)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MaThuongHieu">Chỉnh sửa</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

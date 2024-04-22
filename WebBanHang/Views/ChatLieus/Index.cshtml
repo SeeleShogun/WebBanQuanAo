@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebBanHang.Models.ChatLieu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .buttons {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 13px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #3399ff;
+        border: none;
+        border-radius: 10px;
+    }
+
+        .buttons:hover {
+            background-color: #0066ff
+        }
+
+    .table {
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+        .table thead {
+            background-color: #D3D3D3;
+        }
+
+        .table th,
+        .table td {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+</style>
+
+<h4>Chất liệu</h4>
+
+@using (Html.BeginForm("Index", "ChatLieus", FormMethod.Get))
+{
+    <p>
+        Tìm kiếm: @Html.TextBox("SearchString",ViewBag.CurrentFilter as String)
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
+
+<p>
+    <a asp-action="Create" class="buttons">Tạo mới</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaChatLieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenChatLieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTaChatLieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnhCL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TTChatLieu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="6" style="color:red">
+                    Không tìm thấy chất liệu!
+                </td>
+            </tr>
+        }
+        else
+        {  
+            @foreach (var item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaChatLieu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenChatLieu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoTaChatLieu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnhCL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TTChatLieu)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MaChatLieu">Chỉnh sửa</a> |
+                        <a asp-action="Details" asp-route-id="@item.MaChatLieu">Chi tiết</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MaChatLieu">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
